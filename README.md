@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/stef-oss/NBT-Editor-Calagopus/main/Branding/asdasasddasasd.png" alt="NBT Editor" width="800">
+</p>
+
 # NBT-Editor-Calagopus
 
 A simple NBT Editor extension for the Calagopus Panel.
