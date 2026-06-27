@@ -22,5 +22,7 @@ A simple NBT Editor extension for the Calagopus Panel.
 This extension was partially written with the help of AI. All code has been reviewed and adapted for this project.
 
 
+
+
 ![Requires Calagopus](https://raw.githubusercontent.com/calagopus/branding/main/img/badges/requires_calagopus_wide.svg)
 
