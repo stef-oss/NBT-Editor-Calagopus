@@ -23,7 +23,7 @@ A simple NBT Editor extension for the Calagopus Panel.
 
 ## Disclaimer
 
-This extension was partially written with the help of AI. All code has been reviewed and adapted for this project.
+This extension was partially written with the help of AI.
 
 
 
