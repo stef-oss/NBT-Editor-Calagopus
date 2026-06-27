@@ -1,0 +1,3 @@
+package_name = "cal.stef.nbteditor"
+name = "NBT Editor"
+panel_version = ">=1.0.0"
