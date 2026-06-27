@@ -1,7 +1,7 @@
 {
   "name": "cal_stef_nbteditor",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",

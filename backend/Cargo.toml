@@ -2,7 +2,7 @@
 name = "cal_stef_nbteditor"
 description = "NBT reader for octopusorcalagopuswhatever."
 authors = ["Stef"]
-version = "1.0.0"
+version = "1.0.1"
 edition = { workspace = true }
 
 [dependencies]

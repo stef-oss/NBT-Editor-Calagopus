@@ -245,7 +245,6 @@ pub async fn read(
     server: GetServer,
     Query(query): Query<ReadQuery>,
 ) -> ApiResponseResult {
-    permissions.has_server_permission("nbt-editor.view")?;
     permissions.has_server_permission("files.read-content")?;
 
     let Some(file) = normalize_file_path(&query.file) else {
@@ -289,7 +288,6 @@ pub async fn save(
     activity_logger: GetServerActivityLogger,
     axum::Json(request): axum::Json<SaveRequest>,
 ) -> ApiResponseResult {
-    permissions.has_server_permission("nbt-editor.view")?;
     permissions.has_server_permission("files.update")?;
 
     let Some(file) = normalize_file_path(&request.file) else {

@@ -1,9 +1,7 @@
 use shared::{
     State,
     extensions::{Extension, ExtensionPermissionsBuilder, ExtensionRouteBuilder},
-    permissions::PermissionGroup,
 };
-use indexmap::IndexMap;
 
 mod routes;
 mod services;
@@ -30,12 +28,6 @@ impl Extension for ExtensionStruct {
         _state: State,
         builder: ExtensionPermissionsBuilder,
     ) -> ExtensionPermissionsBuilder {
-        builder.add_server_permission_group(
-            "nbt-editor",
-            PermissionGroup {
-                description: "Permissions for reading and editing Minecraft NBT files.",
-                permissions: IndexMap::from([("view", "Allows opening .dat and .nbt files with the NBT Editor.")]),
-            },
-        )
+        builder
     }
 }

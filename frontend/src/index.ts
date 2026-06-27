@@ -197,7 +197,7 @@ class CalStefNbtEditorExtension extends Extension {
       path: '/nbt-editor',
       exact: true,
       element: NbtEditorPage,
-      permission: 'nbt-editor.view',
+      permission: 'files.read-content',
     });
   }
 }
