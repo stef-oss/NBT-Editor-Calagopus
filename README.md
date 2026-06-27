@@ -10,10 +10,10 @@ A simple NBT Editor extension for the Calagopus Panel.
 
 1. Download the latest release from:
    https://github.com/stef-oss/NBT-Editor-Calagopus/releases/tag/Main
-2. Go to your Panel
+2. Go to your **Panel**
 3. Go to the **Extensions** page.
-4. Upload the downloaded extension.
-5. Enable it and you're ready to edit NBT files.
+4. **Upload** the downloaded extension.
+5. **Rebuild** your panel and you should be good to go!
 
 ## Features
 
