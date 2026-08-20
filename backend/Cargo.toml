@@ -2,11 +2,12 @@
 name = "cal_stef_nbteditor"
 description = "NBT reader for octopusorcalagopuswhatever."
 authors = ["Stef"]
-version = "1.0.1"
+version = "1.0.2"
 edition = { workspace = true }
 
 [dependencies]
 shared = { workspace = true }
+wings-api = { workspace = true }
 async-trait = { workspace = true }
 tracing = { workspace = true }
 anyhow = { workspace = true }

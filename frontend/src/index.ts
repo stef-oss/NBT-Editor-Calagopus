@@ -160,7 +160,7 @@ class CalStefNbtEditorExtension extends Extension {
   public initialize(ctx: ExtensionContext): void {
     ctx.extensionRegistry.pages.server.prependComponent(NbtFileManagerBridge);
 
-    const filesRegistry = ctx.extensionRegistry.pages.server.files as FilesRegistry | undefined;
+    const filesRegistry = ctx.extensionRegistry.pages.server.files as unknown as FilesRegistry | undefined;
     filesRegistry?.fileIconHandlers?.unshift((file) => (isNbtFile(file) ? faFileCode : null));
 
     const openHandler: NonNullable<FilesRegistry['fileOpenHandlers']>[number] = (file) => {

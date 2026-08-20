@@ -51,10 +51,10 @@ export async function saveNbtFile(
   file: string,
   parsed: ParsedNbt,
 ): Promise<{ file: string }> {
-  const { data } = await axiosInstance.post(`/api/client/servers/${serverUuid}/nbt-editor/save`, {
-    file,
-    parsed,
-  });
+  const { data } = await axiosInstance.post(
+    `/api/client/servers/${serverUuid}/nbt-editor/save`,
+    { file, parsed },
+  );
 
   return data;
 }

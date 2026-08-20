@@ -226,7 +226,15 @@ async fn read_file_bytes(
         .await?
         .api_client(&state.database)
         .await?
-        .get_servers_server_files_contents(server.uuid, path, false, 32 * 1024 * 1024)
+        .get_servers_server_files_contents(
+            server.uuid,
+            &wings_api::servers_server_files_contents::get::Query {
+                file: Some(path.into()),
+                download: Some(false),
+                max_size: Some(32 * 1024 * 1024),
+                ..Default::default()
+            },
+        )
         .await?;
 
     let mut bytes = Vec::new();

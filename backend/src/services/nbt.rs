@@ -27,8 +27,10 @@ pub enum NbtCompression {
 pub struct ParsedNbt {
     pub edition: NbtEdition,
     pub compression: NbtCompression,
+    #[serde(alias = "root_name")]
     pub root_name: String,
     pub root: NbtNode,
+    #[serde(alias = "bedrock_header_version")]
     pub bedrock_header_version: Option<u32>,
     pub rootless: bool,
 }
@@ -36,6 +38,7 @@ pub struct ParsedNbt {
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct NbtNode {
+    #[serde(alias = "tag_type")]
     pub tag_type: String,
     pub value: NbtValue,
 }

@@ -201,9 +201,9 @@ const NbtRow = memo(function NbtRow({
   const [draft, setDraft] = useState(scalar);
   const [error, setError] = useState(false);
   const [visibleChildren, setVisibleChildren] = useState(CHILD_RENDER_BATCH);
-  const isCompound = node.value.kind === 'compound';
-  const isList = node.value.kind === 'list';
-  const expandable = isCompound || isList;
+  const compoundValue = node.value.kind === 'compound' ? node.value : null;
+  const listValue = node.value.kind === 'list' ? node.value : null;
+  const expandable = compoundValue !== null || listValue !== null;
   const editable = editableKinds.has(node.value.kind);
   const indent = depth * (isMobile ? 10 : 16);
 
@@ -268,8 +268,12 @@ const NbtRow = memo(function NbtRow({
 
   if (!nodeMatches(node, name, query)) return null;
 
-  const childCount = isCompound ? node.value.entries.length : isList ? node.value.length : 0;
-  const childLabel = isCompound ? `${childCount} tag${childCount === 1 ? '' : 's'}` : isList ? `${childCount} ${node.value.elementType} item${childCount === 1 ? '' : 's'}` : '';
+  const childCount = compoundValue?.entries.length ?? listValue?.length ?? 0;
+  const childLabel = compoundValue
+    ? `${childCount} tag${childCount === 1 ? '' : 's'}`
+    : listValue
+      ? `${childCount} ${listValue.elementType} item${childCount === 1 ? '' : 's'}`
+      : '';
   const childLimit = query ? childCount : Math.min(childCount, visibleChildren);
   const hiddenChildren = query ? 0 : Math.max(0, childCount - childLimit);
 
@@ -384,8 +388,8 @@ const NbtRow = memo(function NbtRow({
             borderLeft: '1px solid rgba(255, 255, 255, 0.075)',
           }}
         >
-          {isCompound
-            ? node.value.entries.slice(0, childLimit).map((entry, index) => (
+          {compoundValue
+            ? compoundValue.entries.slice(0, childLimit).map((entry, index) => (
                 <NbtRow
                   key={`${entry.name}-${index}`}
                   node={entry.node}
@@ -401,8 +405,8 @@ const NbtRow = memo(function NbtRow({
               ))
             : null}
 
-          {isList
-            ? node.value.items.slice(0, childLimit).map((item, index) => (
+          {listValue
+            ? listValue.items.slice(0, childLimit).map((item, index) => (
                 <NbtRow
                   key={index}
                   node={item}
